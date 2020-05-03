@@ -2,7 +2,7 @@
 
     $ cd ~
     $ mv .vim vim-backup
-    $ git clone git@github.com:cdragon1116/env-setup.git .vim
+    $ git clone git@github.com:benchen0812/VimEnv.git
     $ ln -s .vim/vimrc.vim .vimrc
 
 
