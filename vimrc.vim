@@ -32,8 +32,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
 
   " searching
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
+  "Plug '/usr/local/opt/fzf'
+  "Plug '~/.fzf'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
   " for ruby/rails development
   Plug 'vim-ruby/vim-ruby'
@@ -62,6 +63,7 @@ set noswapfile
 set hidden
 set nobomb
 set noswapfile
+
 
 " git gutter
 set updatetime=100
@@ -95,6 +97,10 @@ filetype plugin on
 set encoding=utf-8
 scriptencoding utf-8
 
+"--------------
+" Mouse Click support enable
+"--------------
+set mouse=a
 
 "--------------
 " key mapping
@@ -163,6 +169,4 @@ function! Pphashv()
 endfunction
 
 
-set -g pane-active-border-bg default
-set -g pane-active-border-fg colour208
 
