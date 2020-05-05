@@ -61,6 +61,10 @@ nnoremap <leader>ct :let @*=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 "--------------
 " tmux mapping
 "--------------

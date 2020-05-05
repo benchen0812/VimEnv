@@ -33,8 +33,12 @@ call plug#begin('~/.vim/plugged')
 
   " searching
   "Plug '/usr/local/opt/fzf'
-  "Plug '~/.fzf'
+  Plug '~/.fzf'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
+  "Powerline
+  Plug 'powerline/powerline'
 
   " for ruby/rails development
   Plug 'vim-ruby/vim-ruby'
@@ -50,6 +54,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/MatchTagAlways'
   Plug 'alvan/vim-closetag'
 
+  " For python syntax Checking and Highlighting
+  Plug 'tpope/vim-pathogen'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'nvie/vim-flake8'
+  Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 "--------------
@@ -64,6 +74,15 @@ set hidden
 set nobomb
 set noswapfile
 
+"vim-syntastic/syntastic, syntax checking plugin
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " git gutter
 set updatetime=100
@@ -98,9 +117,9 @@ set encoding=utf-8
 scriptencoding utf-8
 
 "--------------
-" Mouse Click support enable
+" Mouse Click on vim support enable
 "--------------
-set mouse=a
+"set mouse=a
 
 "--------------
 " key mapping
@@ -130,6 +149,10 @@ autocmd VimEnter * wincmd w
 " git hi
 hi GitGutterAdd guibg=red guifg=green
 
+" Python make the code looks pretty
+let python_highlight_all=1
+syntax on
+
 "--------------
 " note
 "--------------
@@ -138,6 +161,9 @@ hi GitGutterAdd guibg=red guifg=green
 " "*P
 " :read !pbpaste
 " bash$ pbpaste | vim -
+
+" Enable pathogen.vim
+execute pathogen#infect()
 
 
 vnoremap <Leader>hh :call Pphashv()<cr>
@@ -168,5 +194,33 @@ function! Pphashv()
   execute "g/^$/d"
 endfunction
 
+"Full Stack Setting
+"For js, html, css file standard
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
+
+"Python setting
+" PEP8 standard
+au Filetype python set
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
+
+
+"python with virtualenv support
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 
