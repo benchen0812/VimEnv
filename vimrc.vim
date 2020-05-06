@@ -103,6 +103,9 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 set pastetoggle=<F10>
 set go+=a               " Visual selection automatically copied to the clipboard
 
+"Fold option enable
+set foldmethod=indent
+set foldlevelstart=20
 
 "--------------
 "Filetype and Encoding
