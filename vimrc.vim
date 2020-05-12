@@ -55,7 +55,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'alvan/vim-closetag'
 
   " For python syntax Checking and Highlighting
-  Plug 'tpope/vim-pathogen'
   Plug 'vim-syntastic/syntastic'
   Plug 'nvie/vim-flake8'
   Plug 'sheerun/vim-polyglot'
@@ -277,3 +276,5 @@ endfunction
 
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
+
+let g:syntastic_python_checkers = ['pylint']
