@@ -241,7 +241,10 @@ au Filetype python set
 " limitations under the License.
 
 " Indent Python in the Google way.
+"
 
+
+"" Set Python Path
 setlocal indentexpr=GetGooglePythonIndent(v:lnum)
 
 let s:maxoff = 50 " maximum number of lines to look backwards.
@@ -277,4 +280,7 @@ endfunction
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
 
-let g:syntastic_python_checkers = ['pylint']
+" Setting for Syntastic
+ let g:syntastic_python_python_exec = 'python3'
+ let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
+ let g:syntastic_python_checkers = ['pylint', 'pylint3']
