@@ -107,6 +107,12 @@ set foldmethod=indent
 set foldlevelstart=20
 
 "--------------
+" Ctag setting
+"-------------
+set tags=./tags;/
+
+
+"--------------
 "Filetype and Encoding
 "--------------
 
@@ -140,7 +146,7 @@ let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_powerline_separators = 0
 
 " close tag settings
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript.jsx,eruby'
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript.jsx,eruby,python,py'
 
 "indent line
 let g:indentLine_color_term = 239
